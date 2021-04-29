@@ -3,7 +3,7 @@ package edu.wctc;
 public class Dragon implements Enemy{
 
     private String name = "Dragon";
-    private String attack = " breathes fire!";
+    private String attack = "breathes fire!";
     private int health = 100;
 
     @Override

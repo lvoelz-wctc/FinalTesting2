@@ -3,9 +3,8 @@ package edu.wctc;
 public class Sorcerer implements Enemy{
 
     private String name = "Sorcerer";
-    private String attack = " casts lightning!";
+    private String attack = "casts lightning!";
     private int health = 100;
-
 
     @Override
     public void damageHealth(int damage) {

@@ -11,6 +11,8 @@ public class Player implements Being, WeaponStrategy{
         this.weaponStrategy = weaponStrategy;
     }
 
+    public void healHealth(int heal) {health = health+heal;}
+
     @Override
     public void damageHealth(int damage) {
         health = health-damage;
@@ -25,7 +27,6 @@ public class Player implements Being, WeaponStrategy{
     public String getName() {
         return name;
     }
-
 
     @Override
     public String useWeapon() {

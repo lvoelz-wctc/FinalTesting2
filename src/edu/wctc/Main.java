@@ -14,39 +14,64 @@ public class Main {
         String name = scanner.nextLine();
         System.out.println("Pick up a Sword (S), Axe (A), or Spear (P).");
         String weapon = scanner.nextLine();
-        Player p = new Player(new WeaponSword(), name);
 
-        /**
-        if (weapon.equals("S")){
-            Player p = new Player(new WeaponSword(), name);
-        }
-        else if (weapon.equals("A")){
-            Player p = new Player(new WeaponAxe(), name);
-        }
-        else {
-            Player p = new Player(new WeaponSpear(), name);
-        }**/
+        /**Create a player**/
+        PlayerFactory pf = new PlayerFactory();
+        Player p = pf.create(weapon, name);
 
+        /**Create an enemy and the BattleDriver, show enemy once before starting loop**/
         EnemyFactory ef = new EnemyFactory();
         Enemy e = ef.create();
         BattleDriver bd = new BattleDriver(p, e);
+        System.out.println(bd.showEnemy());
 
-        //do {
-            System.out.println(bd.showEnemy());
+        /**Do-While Battle Loop**/
+        do {
+            /**Enemy attacks**/
             System.out.println(bd.showAttack());
             bd.playerDamage();
 
-            bd.enemyDamage();
+            /**Test if attack killed player, if so break loop**/
+            if (bd.getPlayerHealth() <= 0){
+                turns++;
+                break;
+            }
 
+            /**Player chooses to fight or drink potion**/
+            System.out.println("Your turn! Enter A to attack or P to drink a potion.");
+            String playerAction = scanner.nextLine();
 
-        /**} while (bd.getEnemyHealth() > 0 && bd.getPlayerHealth() >0);
-        score = score - (turns * turnMult);
+            if (playerAction.equals("A")){
+                bd.enemyDamage();
+            }
+            else if (playerAction.equals("P")){
+                bd.healPlayer();
+            }
+            turns++;
+        } while (bd.getEnemyHealth() > 0 && bd.getPlayerHealth() > 0);
+
+        /**Determine whether player or enemy won; calculate and show score if player won**/
         if (bd.getEnemyHealth() <= 0) {
-            System.out.println("You defeated the " +e.getName() + "!");
+            score = score - (turns * turnMult);
+            System.out.println(bd.getPlayerName() + " defeated the " + bd.getEnemyName() + "!");
             System.out.println("Your score is " + score +".");
         }
         if (bd.getPlayerHealth() <= 0){
             System.out.println("The " + e.getName() + " defeated you!");
-        }**/
+        }
     }
 }
+
+/**DEFINING PLAYER IN MAIN???**/
+/**Move this to Player or a PlayerFactory? PlayerFactory may be best due to the variables -
+ * we're passing S, A, or P like we are 1-4 in EnemyFactory.
+ *         //Player p = new Player(new WeaponSword(), name);
+ if (weapon.equals("S")){
+ Player p = new Player(new WeaponSword(), name);
+ }
+ else if (weapon.equals("A")){
+ Player p = new Player(new WeaponAxe(), name);
+ }
+ else {
+ Player p = new Player(new WeaponSpear(), name);
+ }**/
