@@ -12,8 +12,11 @@ public class BattleDriver {
         this.enemy = enemy;
     }
 
-    DamageCalculator dc = new DamageCalculator();
-    PotionCalculator pc = new PotionCalculator();
+    //Call the singleton PotionCalculator
+    PotionCalculator pc = PotionCalculator.getInstance();
+
+    //Call the singleton DamageCalculator
+    DamageCalculator dc = DamageCalculator.getInstance();
 
     public String showEnemy() {return "You see a " + enemy.getName() + "!";}
 
@@ -27,6 +30,7 @@ public class BattleDriver {
 
     public String getPlayerName() {return player.getName();}
 
+    /**This also needs to be split up.**/
     public void healPlayer() {
         int heal = pc.calculatePotion();
         System.out.println("You drink a potion and restore " + heal + " health.");
@@ -48,6 +52,7 @@ public class BattleDriver {
         System.out.println(player.useWeapon());
         System.out.println("The " +enemy.getName() + " takes " + damage + " damage!");
         enemy.damageHealth(damage);
+        //For testing only. Delete before finalizing.
         System.out.println(enemy.getName() + "'s health is now " + enemy.getHealth() + "!");
     }
 }

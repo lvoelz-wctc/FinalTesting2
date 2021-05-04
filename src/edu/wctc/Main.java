@@ -61,17 +61,3 @@ public class Main {
         }
     }
 }
-
-/**DEFINING PLAYER IN MAIN???**/
-/**Move this to Player or a PlayerFactory? PlayerFactory may be best due to the variables -
- * we're passing S, A, or P like we are 1-4 in EnemyFactory.
- *         //Player p = new Player(new WeaponSword(), name);
- if (weapon.equals("S")){
- Player p = new Player(new WeaponSword(), name);
- }
- else if (weapon.equals("A")){
- Player p = new Player(new WeaponAxe(), name);
- }
- else {
- Player p = new Player(new WeaponSpear(), name);
- }**/
