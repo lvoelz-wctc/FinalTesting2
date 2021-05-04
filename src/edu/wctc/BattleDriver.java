@@ -53,10 +53,12 @@ public class BattleDriver {
     public String getPlayerName() {return player.getName();}
 
     /**This also needs to be split up.**/
+    /**Last line ensures that restored health readout is accurate if player health adjusted to below 100**/
     public void healPlayer() {
         int heal = pc.calculatePotion();
-        System.out.println("You drink a potion and restore " + heal + " health.");
+        int previousHealth = getPlayerHealth();
         player.healHealth(heal);
+        System.out.println("You drink a potion and restore " + (getPlayerHealth() - previousHealth) + " health.");
     }
 
     /**Guessing we need to split this up somehow**/

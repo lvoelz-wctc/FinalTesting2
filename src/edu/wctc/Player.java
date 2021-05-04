@@ -11,7 +11,18 @@ public class Player implements Being, WeaponStrategy{
         this.weaponStrategy = weaponStrategy;
     }
 
-    public void healHealth(int heal) {health = health+heal;}
+    public void healHealth(int heal) {
+        int newHealth = health + heal;
+
+        if (newHealth > 100){
+            health = 100;
+        }
+        else {
+            health = health+heal;
+        }
+        }
+
+
 
     @Override
     public void damageHealth(int damage) {
