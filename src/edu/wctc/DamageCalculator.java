@@ -2,6 +2,10 @@ package edu.wctc;
 
 import java.util.Random;
 
+/**
+ * Singleton class that generates a random integer between 5 and 15 and returns the result. This integer is used by
+ * both Player and Enemy to determine the amount of damage dealt to the opposite entity's health.
+ */
 public class DamageCalculator {
 
     private static DamageCalculator instance = new DamageCalculator();

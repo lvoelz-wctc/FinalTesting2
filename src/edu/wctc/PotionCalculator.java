@@ -2,6 +2,10 @@ package edu.wctc;
 
 import java.util.Random;
 
+/**
+ * Singleton class that generates a random integer between 10 and 15 and returns the result. This integer is used by
+ * Player to determine the amount of health restored when a player chooses to drink a potion on their turn.
+ */
 public class PotionCalculator {
 
     private static PotionCalculator instance = new PotionCalculator();

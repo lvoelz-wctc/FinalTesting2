@@ -2,6 +2,10 @@ package edu.wctc;
 
 public class PlayerFactory {
 
+    /**
+     * Factory for creating Players. Accepts a weapon and name from Main. Returns a Player with the given name, and a
+     * WeaponStrategy based on the weapon parameter.
+     */
     public PlayerFactory(){}
 
     /**

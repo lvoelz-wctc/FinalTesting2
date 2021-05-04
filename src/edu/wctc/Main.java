@@ -2,6 +2,14 @@ package edu.wctc;
 
 import java.util.Scanner;
 
+/**
+ * Asks for the user's name and weapon choice, then uses the result to create a player from the PlayerFactory. Then,
+ * creates an enemy from the EnemyFactory. A BattleDriver is constructed with the Player and Enemy as the parameters.
+ * A do-while loop uses the BattleDriver to run a cycle where the enemy attacks, and then the player can attack the enemy
+ * or drink a potion to restore health. This loop continues until either the player or enemy's health is zero. If the enemy's
+ * health is zero, the player receives a score that decreases based on the number of turns it took to defeat the enemy. If
+ * the player dies, they don't receive a score.
+ */
 public class Main {
 
     public static void main(String[] args) {

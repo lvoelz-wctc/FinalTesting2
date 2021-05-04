@@ -1,5 +1,12 @@
 package edu.wctc;
 
+/**
+ * Accepts a player and enemy from the PlayerFactory and EnemyFactory called in main. Uses the player and enemy to show
+ * information about the player's/enemy's attacks and health during the battle. Also contains methods for calculating the
+ * player's/enemy's health following an attack, and for healing the player if they choose to use a potion. The getters and
+ * shower methods allow Main to return information about the Player/Enemy without directly interacting with a player/enemy
+ * class.
+ */
 public class BattleDriver {
 
     private Player player;
