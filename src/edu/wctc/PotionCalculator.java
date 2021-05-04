@@ -2,13 +2,15 @@ package edu.wctc;
 
 import java.util.Random;
 
-//Try this as a singleton? Because we don't need multiple potionCalculators.
-
 public class PotionCalculator {
 
     private static PotionCalculator instance = new PotionCalculator();
     private PotionCalculator(){}
 
+    /**
+     * Returns a singleton instance of PotionCalculator for use in the BattleDriver
+     * @return a singleton instance of PotionCalculator
+     */
     public static PotionCalculator getInstance(){
         return instance;
     }

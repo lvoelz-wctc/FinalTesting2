@@ -28,6 +28,4 @@ public class DamageCalculator {
         int result = r.nextInt(upperBound-lowerBound) + lowerBound;
         return result;
     }
-    //to extend this, we could do a DamageStrategy with subclasses for each monster, if we wanted to
-    //customize damage types per monster.
 }

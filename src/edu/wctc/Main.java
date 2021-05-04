@@ -9,6 +9,7 @@ public class Main {
         int turns = 0;
         int turnMult = 3;
 
+
 	Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Fantasy Battle! Enter your name.");
         String name = scanner.nextLine();
@@ -57,7 +58,7 @@ public class Main {
             System.out.println("Your score is " + score +".");
         }
         if (bd.getPlayerHealth() <= 0){
-            System.out.println("The " + e.getName() + " defeated you!");
+            System.out.println("The " + bd.getEnemyName() + " defeated you!");
         }
     }
 }

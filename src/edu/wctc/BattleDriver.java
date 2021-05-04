@@ -1,7 +1,5 @@
 package edu.wctc;
 
-import java.util.Random;
-
 public class BattleDriver {
 
     private Player player;
@@ -18,16 +16,40 @@ public class BattleDriver {
     //Call the singleton DamageCalculator
     DamageCalculator dc = DamageCalculator.getInstance();
 
+    /**
+     * Shows text describing the enemy's name
+     * @return A string stating that the player sees a specific type of enemy.
+     */
     public String showEnemy() {return "You see a " + enemy.getName() + "!";}
 
+    /**
+     * Shows text describing the enemy's attack.
+     * @return A string stating that the enemy makes an attack.
+     */
     public String showAttack() {return "The " + enemy.getName() + " " + enemy.enemyAttack();}
 
+    /**
+     * Returns the player's health
+     * @return The player's health
+     */
     public int getPlayerHealth() {return player.getHealth();}
 
+    /**
+     * Returns the enemy's health
+     * @return The enemy's health
+     */
     public int getEnemyHealth() {return enemy.getHealth();}
 
+    /**
+     * Returns the enemy's name
+     * @return The enemy's name
+     */
     public String getEnemyName() {return enemy.getName();}
 
+    /**
+     * Returns the player's name
+     * @return The player's name
+     */
     public String getPlayerName() {return player.getName();}
 
     /**This also needs to be split up.**/
