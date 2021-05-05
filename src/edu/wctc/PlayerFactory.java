@@ -22,7 +22,6 @@ public class PlayerFactory {
      * @param name   A string based on the what user entered for the name entry prompt in main.
      * @return a Player, which is then passed to the BattleDriver.
      */
-
     public Player create(String weapon, String name){
         if (weapon.equals("S")){
             return new Player(new WeaponSword(), name);

@@ -23,29 +23,29 @@ public class Main {
         System.out.println("Pick up a Sword (S), Axe (A), or Spear (P).");
         String weapon = scanner.nextLine();
 
-        /**Create a player**/
+        //Create a player
         PlayerFactory pf = PlayerFactory.getInstance();
         Player p = pf.create(weapon, name);
 
-        /**Create an enemy and the BattleDriver, show enemy once before starting loop**/
+        //Create an enemy and the BattleDriver, show enemy once before starting loop
         EnemyFactory ef = EnemyFactory.getInstance();
         Enemy e = ef.create();
         BattleDriver bd = new BattleDriver(p, e);
         System.out.println(bd.showEnemy());
 
-        /**Do-While Battle Loop**/
+        //Do-While Battle Loop
         do {
-            /**Enemy attacks**/
+            //Enemy attacks
             System.out.println(bd.showAttack());
             bd.playerDamage();
 
-            /**Test if attack killed player, if so break loop**/
+            //Test if attack killed player, if so break loop
             if (bd.getPlayerHealth() <= 0){
                 turns++;
                 break;
             }
 
-            /**Player chooses to fight or drink potion**/
+            //Player chooses to fight or drink potion
             System.out.println("Your turn! Enter A to attack or P to drink a potion.");
             String playerAction = scanner.nextLine();
 
@@ -58,7 +58,7 @@ public class Main {
             turns++;
         } while (bd.getEnemyHealth() > 0 && bd.getPlayerHealth() > 0);
 
-        /**Determine whether player or enemy won; calculate and show score if player won**/
+        //Determine whether player or enemy won; calculate and show score if player won
         if (bd.getEnemyHealth() <= 0) {
             score = score - (turns * turnMult);
             System.out.println(bd.getPlayerName() + " defeated the " + bd.getEnemyName() + "!");

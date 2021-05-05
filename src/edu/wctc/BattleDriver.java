@@ -56,8 +56,12 @@ public class BattleDriver {
      */
     public String getPlayerName() {return player.getName();}
 
-    /**This also needs to be split up.**/
-    /**Last line ensures that restored health readout is accurate if player health adjusted to below 100**/
+    /**
+     * Calls the PotionCalculator's calculatePotion method to get a random number between 15 and 20, then passes
+     * that number to the player's heal method. If Player.healHealth would set player's health above 100, the health
+     * is set to 100 instead. To account for this in healPlayer, we subtract the player's new health from the health
+     * before healing, so that our potion output accounts for any "flattened" heal values.
+     */
     public void healPlayer() {
         int heal = pc.calculatePotion();
         int previousHealth = getPlayerHealth();
@@ -65,8 +69,11 @@ public class BattleDriver {
         System.out.println("You drink a potion and restore " + (getPlayerHealth() - previousHealth) + " health.");
     }
 
-    /**Guessing we need to split this up somehow**/
-    /**Define a local damage variable and use that for both screen output and adjusting player's health**/
+    /**
+     * When an enemy attacks, calls the DamageCalculator's calculateDamage method to get a random number between 5 and 15, then passes
+     * that number to the player's damageHealth method. System.out reports on the amount of damage taken and the player's
+     * current health.
+     */
     public void playerDamage() {
         int damage = dc.calculateDamage();
         System.out.println(player.getName() + " takes " + damage + " damage!");
@@ -74,13 +81,16 @@ public class BattleDriver {
         System.out.println(player.getName() + "'s health is now " + player.getHealth() + "!");
     }
 
-    /**This also needs to be split up**/
+    /**
+     * When a player attacks, calls the DamageCalculator's calculateDamage method to get a random number between 5 and 15, then passes
+     * that number to the enemy's damageHealth method. System.out reports on the attack and the amount of damage taken. The enemy's damageHealth
+     * method reduces the enemy's health by the damage value. We do not want the player to know the enemy's health, so we do not use system.out
+     * to report enemy health.
+     */
     public void enemyDamage() {
         int damage = dc.calculateDamage();
         System.out.println(player.useWeapon());
         System.out.println("The " +enemy.getName() + " takes " + damage + " damage!");
         enemy.damageHealth(damage);
-        //For testing only. Delete before finalizing.
-        System.out.println(enemy.getName() + "'s health is now " + enemy.getHealth() + "!");
     }
 }
