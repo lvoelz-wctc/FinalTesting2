@@ -3,12 +3,17 @@ package edu.wctc;
 import java.util.Random;
 
 /**
- * Factory class for creating an enemy. When called, generates a random integer between one and four, and creates
+ * Singleton Factory class for creating an enemy. When called, generates a random integer between one and four, and creates
  * one of the four enemy types based on the result. The returned enemy is passed from Main to the BattleDriver.
  */
 public class EnemyFactory {
 
-    public EnemyFactory(){}
+    private static EnemyFactory instance = new EnemyFactory();
+    private EnemyFactory(){}
+
+    public static EnemyFactory getInstance(){
+        return instance;
+    }
 
     /**
      * When called by the BattleDriver, generates a random number between 1 and 4, and returns one of four possible

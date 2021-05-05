@@ -25,11 +25,11 @@ public class Main {
         String weapon = scanner.nextLine();
 
         /**Create a player**/
-        PlayerFactory pf = new PlayerFactory();
+        PlayerFactory pf = PlayerFactory.getInstance();
         Player p = pf.create(weapon, name);
 
         /**Create an enemy and the BattleDriver, show enemy once before starting loop**/
-        EnemyFactory ef = new EnemyFactory();
+        EnemyFactory ef = EnemyFactory.getInstance();
         Enemy e = ef.create();
         BattleDriver bd = new BattleDriver(p, e);
         System.out.println(bd.showEnemy());

@@ -17,11 +17,8 @@ public class BattleDriver {
         this.enemy = enemy;
     }
 
-    //Call the singleton PotionCalculator
-    PotionCalculator pc = PotionCalculator.getInstance();
-
-    //Call the singleton DamageCalculator
-    DamageCalculator dc = DamageCalculator.getInstance();
+    PotionCalculator pc = new PotionCalculator();
+    DamageCalculator dc = new DamageCalculator();
 
     /**
      * Shows text describing the enemy's name
