@@ -17,7 +17,6 @@ public class Main {
         int turns = 0;
         int turnMult = 3;
 
-
 	Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Fantasy Battle! Enter your name.");
         String name = scanner.nextLine();
