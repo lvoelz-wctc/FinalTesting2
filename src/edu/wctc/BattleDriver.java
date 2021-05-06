@@ -12,6 +12,12 @@ public class BattleDriver {
     private Player player;
     private Enemy enemy;
 
+    /**
+     * Constructor to create the BattleDriver. Accepts the Player and Enemy created by the factories
+     * instantiated in Main.
+     * @param player The Player created by the PlayerFactory in Main
+     * @param enemy The Enemy created by the EnemyFactory in Main
+     */
     public BattleDriver(Player player, Enemy enemy){
         this.player = player;
         this.enemy = enemy;

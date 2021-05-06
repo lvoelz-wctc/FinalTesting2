@@ -9,8 +9,16 @@ import java.util.Random;
 public class EnemyFactory {
 
     private static EnemyFactory instance = new EnemyFactory();
+
+    /**
+     * Constructor for creating a singleton EnemyFactory.
+     */
     private EnemyFactory(){}
 
+    /**
+     * Returns the singleton instance of EnemyFactory.
+     * @return the singleton instance of EnemyFactory.
+     */
     public static EnemyFactory getInstance(){
         return instance;
     }

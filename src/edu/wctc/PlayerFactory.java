@@ -2,15 +2,21 @@ package edu.wctc;
 
 public class PlayerFactory {
 
-    /**This factory should be a singleton**/
-
     /**
      * Singleton Factory for creating Players. Accepts a weapon and name from Main. Returns a Player with the given name, and a
      * WeaponStrategy based on the weapon parameter.
      */
     private static PlayerFactory instance = new PlayerFactory();
+
+    /**
+     * Constructor for creating the singleton PlayerFactory.
+     */
     private PlayerFactory(){}
 
+    /**
+     * Returns the singleton instance of PlayerFactory.
+     * @return the singleton instance of PlayerFactory.
+     */
     public static PlayerFactory getInstance(){
         return instance;
     }
